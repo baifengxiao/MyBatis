@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.EmpMapper">
+    <resultMap id="empResultMap" type="pojo.Emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+    </resultMap>
+
+    <select id="getAllEmpByResultMap" resultMap="empResultMap">
+        <!--   select eid,emp_name empName,age,sex,email from t_emp -->
+        select * from t_emp
+    </select>
+    <select id="getAllEmp" resultType="pojo.Emp">
+        <!--   select eid,emp_name empName,age,sex,email from t_emp -->
+        select * from t_emp
+    </select>
+    <!--      分割线  -->
+    <!--    级联方式处理-->
+    <resultMap id="empAndDeptResultMapOne" type="Emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+        <result property="dept.did" column="did"></result>
+        <result property="dept.deptName" column="dept_name"></result>
+    </resultMap>
+    <!--    第二种，association-->
+    <resultMap id="empAndDeptResultMapTwo" type="Emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+        <association property="dept" javaType="Dept">
+            <id property="did" column="did"></id>
+            <id property="deptName" column="dept_name"></id>
+        </association>
+    </resultMap>
+
+    <!--    第3种，分步查询，引出延迟加载-->
+    <resultMap id="getEmpAndDeptResultMap" type="emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+
+        <!--        select是第二步的查询语句的方法，用全类名.方法名；column是分布查询条件-->
+        <association property="dept" select="mapper.DeptMapper.getEmpAndDeptByStepTwo" column="did" fetchType="eager"></association>
+
+    </resultMap>
+    <select id="getEmpAndDept" resultMap="empAndDeptResultMapTwo">
+        select *
+        from t_emp
+                 left join t_dept on t_emp.did = t_dept.did
+        WHERE t_emp.eid = #{eid}
+    </select>
+
+    <select id="getEmpAndDeptByStepOne" resultMap="getEmpAndDeptResultMap">
+        select *
+        from t_emp
+        where eid = #{eid}
+    </select>
+    <select id="getDeptAndEmpByStepTwo" resultType="pojo.Emp">
+        select *from t_emp where did=#{did}
+    </select>
+
+
+</mapper>

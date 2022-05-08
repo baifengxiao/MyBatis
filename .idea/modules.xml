@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyBatis.iml" filepath="$PROJECT_DIR$/MyBatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo01/Mybatis_demo01.iml" filepath="$PROJECT_DIR$/Mybatis_demo01/Mybatis_demo01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo02/Mybatis_demo02.iml" filepath="$PROJECT_DIR$/Mybatis_demo02/Mybatis_demo02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo03/Mybatis_demo03.iml" filepath="$PROJECT_DIR$/Mybatis_demo03/Mybatis_demo03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo04/Mybatis_demo04.iml" filepath="$PROJECT_DIR$/Mybatis_demo04/Mybatis_demo04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo05/Mybatis_demo05.iml" filepath="$PROJECT_DIR$/Mybatis_demo05/Mybatis_demo05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo06/Mybatis_demo06.iml" filepath="$PROJECT_DIR$/Mybatis_demo06/Mybatis_demo06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_demo07/Mybatis_demo07.iml" filepath="$PROJECT_DIR$/Mybatis_demo07/Mybatis_demo07.iml" />
+    </modules>
+  </component>
+</project>

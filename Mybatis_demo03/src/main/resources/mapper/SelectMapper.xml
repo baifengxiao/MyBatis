@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.EmpMapper">
+    <select id="getUserById" resultType="pojo.User">
+        select *
+        from t_user
+        where id = #{id}
+    </select>
+    <select id="getUserByIdToList" resultType="pojo.User">
+        select *
+        from t_user
+        where id = #{id}
+    </select>
+    <select id="getUserByIdToMap" resultType="map">
+        select *
+        from t_user
+        where id = #{id}
+    </select>
+
+
+
+    <select id="getUserToList" resultType="pojo.User">
+        select *
+        from t_user
+    </select>
+
+    <!--    result有类型别名-->
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(*)
+        from t_user
+    </select>
+    <select id="getUsersToMap" resultType="java.util.Map">
+        select *
+        from t_user
+    </select>
+    <select id="getUsersToMapByMapkey" resultType="java.util.Map">
+        select *
+        from t_user
+    </select>
+
+</mapper>
